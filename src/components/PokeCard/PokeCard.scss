@@ -1,0 +1,159 @@
+.poke-card- {
+  &-cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 5em 2em;
+    background-color: var(--mute-color);
+    color: var(--text-color);
+    &.loading {
+      .poke-card--el {
+        background-color: #ffffff;
+        opacity: 0.5;
+        pointer-events: none;
+        .poke-card--el-header-title {
+          color: #ffffff;
+        }
+        img {
+          filter: grayscale(100%);
+        }
+      }
+    }
+  }
+
+  &-el {
+    cursor: pointer;
+    width: calc(20% - 2em);
+    padding: 1.5em;
+    margin: 0.5em;
+    @media screen and (max-width: 1280px) {
+      width: calc(50% - 2em);
+    }
+    @media screen and (max-width: 768px) {
+      width: calc(100% - 2em);
+    }
+    &:hover {
+      background-color: var(--mute-color);
+      border-color: var(--accent-color);
+      .poke-card--el-header img {
+        animation: rumble 0.5s both ease-in-out;
+        pointer-events: none;
+      }
+    }
+    &:active {
+      background-color: var(--accent-color-dark);
+      border-color: var(--accent-color-dark);
+      box-shadow: 0 0 10px 0 var(--accent-color-dark);
+      transform: translateY(0.2em);
+      .poke-card--el-header-title {
+        color: #ffffff;
+      }
+    }
+    &-header {
+      display: flex;
+      img {
+        height: 30px;
+        margin-right: 1em;
+      }
+      &-title {
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  &-detail {
+    width: calc(50% - 2em);
+    padding: 3em;
+    margin: -2em;
+    @media screen and (max-width: 1280px) {
+      width: calc(100% - 2em);
+    }
+    &-header {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 2em;
+      margin-bottom: 2em;
+      border-bottom: 1px solid var(--mute-color-dark);
+      &-img {
+        margin-bottom: 2em;
+        background-image: radial-gradient(
+          ellipse 100% 50% at bottom right,
+          #a4d63b 120%,
+          #a4d63b 120%,
+          #ade338 120%,
+          #ade338 130%,
+          #78beff 130%,
+          #78beff 130%,
+          #3aa0ff 200%,
+          #3aa0ff 200%
+        );
+        img {
+          height: 250px;
+          width: 250px;
+          image-rendering: pixelated;
+          animation: pokeFadeSpawn 0.5s both ease-in-out;
+        }
+      }
+      &-title {
+        font-size: 2em;
+      }
+    }
+    &-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      gap: 1em;
+      p {
+        font-weight: bold;
+        max-width: 100%;
+        width: 300px;
+        text-align: left;
+      }
+    }
+  }
+
+  &-el,
+  &-detail {
+    border: 5px solid #ffffff;
+    background-color: #ffffff;
+    transition: background-color, box-shadow 0.3s;
+    &-header {
+      justify-content: start;
+      align-items: center;
+      img {
+        margin-right: 1em;
+      }
+    }
+  }
+}
+
+@keyframes rumble {
+  0% {
+    transform: rotate(0deg) scale(1.5);
+  }
+  25% {
+    transform: rotate(5deg) scale(2);
+  }
+  50% {
+    transform: rotate(-5deg) scale(1.5);
+  }
+  75% {
+    transform: rotate(5deg) scale(1.5);
+  }
+  100% {
+    transform: rotate(0deg) scale(1.5);
+  }
+}
+
+@keyframes pokeFadeSpawn {
+  0% {
+    opacity: 0;
+    transform: translateY(-2em);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

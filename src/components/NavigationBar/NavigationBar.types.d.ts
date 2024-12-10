@@ -1,0 +1,3 @@
+type NavigationBarProps = {
+  goToPreviousPage: () => void;
+};

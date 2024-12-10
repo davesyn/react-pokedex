@@ -1,0 +1,30 @@
+h1.title {
+  font-size: 5em;
+  font-weight: bolder;
+  color: #333;
+  margin-bottom: 0.5em;
+  text-align: center;
+  text-shadow: 0.05em 0.05em 0px black;
+  animation: colorShine 6s infinite;
+  @media screen and (max-width: 1280px) {
+    font-size: 4em;
+  }
+  @media (max-width: 900px) {
+    font-size: 3em;
+  }
+  @media (max-width: 680px) {
+    font-size: 2em;
+  }
+}
+
+@keyframes colorShine {
+  0% {
+    color: var(--accent-color);
+  }
+  50% {
+    color: var(--accent-color-dark);
+  }
+  100% {
+    color: var(--accent-color);
+  }
+}
